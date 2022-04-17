@@ -44,7 +44,7 @@ bool dip_switch_update_kb(uint8_t index, bool active) {
 
 #endif
 
-#if defined(RGB_MATRIX_ENABLE) && defined(CAPS_LOCK_LED_INDEX)
+#if defined(RGB_MATRIX_ENABLE) && defined(CAPS_LOCK_LED_INDEX1)
 
 #    define CAPS_LOCK_MAX_BRIGHTNESS 0xFF
 #    ifdef RGB_MATRIX_MAXIMUM_BRIGHTNESS
@@ -68,7 +68,12 @@ void rgb_matrix_indicators_kb(void) {
         } else {
             b = CAPS_LOCK_MAX_BRIGHTNESS;
         }
-        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX, b, b, b);  // white, with the adjusted brightness
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX1, b, b, b);  // white, with the adjusted brightness
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX2, b, b, b);  // white, with the adjusted brightness
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX3, b, b, b);  // white, with the adjusted brightness
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX4, b, b, b);  // white, with the adjusted brightness
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX5, b, b, b);  // white, with the adjusted brightness
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX6, b, b, b);  // white, with the adjusted brightness
     }
 }
 
