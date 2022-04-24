@@ -25,7 +25,7 @@ bool VIVID_SPLASH(effect_params_t* params)
                 int16_t dx = g_led_config.point[i].x - g_last_hit_tracker.x[j];
                 int16_t dy = g_led_config.point[i].y - g_last_hit_tracker.y[j];
                 uint8_t dist = sqrt16(dx * dx + dy * dy);
-                if (dist <= 20 && dist < lastDist) {
+                if (dist <= 20 && dist <= lastDist) {
                     tick = g_last_hit_tracker.tick[j] + dist * 10;
                     lastDist = dist;
                     if (tick < max_tick) {
@@ -44,8 +44,7 @@ bool VIVID_SPLASH(effect_params_t* params)
             rgb_matrix_set_color(i, 0, 0, 0);
         }
     }
-}
-return rgb_matrix_check_finished_leds(led_max);
+    return rgb_matrix_check_finished_leds(led_max);
 }
 
 #endif // RGB_MATRIX_CUSTOM_EFFECT_IMPLS
